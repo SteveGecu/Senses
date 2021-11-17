@@ -1,0 +1,20 @@
+{
+  "name": "xdm-tests",
+  "version": "1.0.0",
+  "description": "1- Clone Repo 2- npm i 3- Choose environment and copy file content into .env 4- Tests are consuming data from .env file therefore .env file needs live drones data 5- Each test is able to run individually",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/spacee/display/test-automation/xdm-tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/spacee/display/test-automation/xdm-tests/issues"
+  },
+  "homepage": "https://gitlab.com/spacee/display/test-automation/xdm-tests#readme"
+}
