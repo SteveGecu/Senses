@@ -1,5 +1,5 @@
 const fetch = require("node-fetch")
-const qs = require("qs")
+const querystring = require('querystring')
 const tokenUrl = 'https://spacee.okta.com/oauth2/default/v1/token'
 const client_id = '0oaalwk8e4uzCmR8D357'
 const client_secret = 'aDtPC4o2NtglSyy6_RAcP4ef4fMYpQ2UPOII7AIf'
@@ -19,7 +19,7 @@ async function getToken() {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Cookie': 'JSESSIONID=8D822CE6B6C3A5D11FEC3844ABEA9B26'
         },
-        body: qs.stringify({
+        body: querystring.stringify({
             grant_type: 'client_credentials',
             redirect_uri: 'http://localhost:8080/authorization-code/callback',
             scope: 'stores',
