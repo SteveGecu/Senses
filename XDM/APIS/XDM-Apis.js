@@ -15,9 +15,42 @@ async function getComponent(token) {
         status: response.status,
         headers: response.statusText
     }
+}
 
+async function getCustomerGroups(token) {
+    const response = await fetch(XDMurl + "/customer/groups", {
+        method: 'GET',
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': '*/*',
+            'Authorization': `Bearer ${ token }`
+        }
+    })
+    return {
+        body: await response.json(),
+        status: response.status,
+        headers: response.statusText
+    }
+}
+
+async function getCustomers(token) {
+    const response = await fetch(XDMurl + "/customer", {
+        method: 'GET',
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': '*/*',
+            'Authorization': `Bearer ${ token }`
+        }
+    })
+    return {
+        body: await response.json(),
+        status: response.status,
+        headers: response.statusText
+    }
 }
 
 module.exports = {
-    getComponent
+    getComponent,
+    getCustomerGroups,
+    getCustomers
 }
