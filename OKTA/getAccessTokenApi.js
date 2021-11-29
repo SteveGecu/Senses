@@ -9,7 +9,6 @@ const codeChallange = process.env.CODECHALLANGE
 const sessionTokenUrl = 'https://spacee.okta.com/api/v1/authn'
 const authTokenUrl = 'https://spacee.okta.com/oauth2/ausd9g9jmaQVYtJqt357/v1/authorize'
 const accesTokenUrl = 'https://spacee.okta.com/oauth2/ausd9g9jmaQVYtJqt357/v1/token?state=state'
-const clientId = '0oaatf0youl72WCfo357'
 const cookie = 'DT=DI0cEqdjJOBS-uM8RryfOBntw; JSESSIONID=09BA4A0D45A8945ADB23FC3F5412C74B; proximity_f01431aa63886592385734608f15999c=cM/t6v+aMWfncC3yuKmVEXuw22/GwYZ+r53Oy6g+PXPjMQkvDwOAUJf7BASaX0pddP7fTTnsL1TwTj2wBh34YmzdjDvJFOSRlJP8drUmfqYcK9rdwAVcaVgrM3N1dHEUKjd5c43yRMjqLfI8xaGJ6nrcUIXBDLGBJoS2HNhATMj1Y96N5v/tU1rhqQ7CDLwx; sid=1022xWsQ6iLSn2YLOq7rGjmBw; t=default'
 const cookieAuth = 'DT=DI0cEqdjJOBS-uM8RryfOBntw; JSESSIONID=5D9267F625237453E16A40AE9F8A1C20; proximity_f01431aa63886592385734608f15999c=cM/t6v+aMWfncC3yuKmVEXuw22/GwYZ+r53Oy6g+PXPjMQkvDwOAUJf7BASaX0pddP7fTTnsL1TwTj2wBh34YmzdjDvJFOSRlJP8drUmfqYcK9rdwAVcaVgrM3N1dHEUKjd5c43yRMjqLfI8xaGJ6nrcUIXBDLGBJoS2HNhATMj1Y96N5v/tU1rhqQ7CDLwx; sid=102jvSaR576QdmoW86fc8EzyQ; t=default'
 const accessCookie = 'DT=DI0cEqdjJOBS-uM8RryfOBntw; JSESSIONID=5D9267F625237453E16A40AE9F8A1C20; proximity_f01431aa63886592385734608f15999c=cM/t6v+aMWfncC3yuKmVEXuw22/GwYZ+r53Oy6g+PXPjMQkvDwOAUJf7BASaX0pddP7fTTnsL1TwTj2wBh34YmzdjDvJFOSRlJP8drUmfqYcK9rdwAVcaVgrM3N1dHEUKjd5c43yRMjqLfI8xaGJ6nrcUIXBDLGBJoS2HNhATMj1Y96N5v/tU1rhqQ7CDLwx; sid=102jvSaR576QdmoW86fc8EzyQ; t=default'
