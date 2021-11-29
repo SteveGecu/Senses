@@ -1,5 +1,7 @@
-const XDMurl = 'https://xdm-api.sense.dev.eastus2.spacee.io'
 const fetch = require("node-fetch");
+require('dotenv').config()
+
+const XDMurl = process.env.XDMHOST
 
 async function getComponent(token) {
     const response = await fetch(XDMurl + "/component", {

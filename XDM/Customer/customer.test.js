@@ -1,5 +1,5 @@
 const Token = require('../../OKTA/getAccessTokenApi')
-const APIS = require('../Customer/customerApis')
+const CustomerApis = require('../Customer/customerApis')
 let customerId
 const someCustomerName = 'GOGS'
 const updatedCustomerName = 'yeniGOGS'
@@ -12,32 +12,32 @@ describe('XDM Tests', () => {
     })
 
     it('should create new customer', async () => {
-        const response = await APIS.createCustomer(token, someCustomerName)
+        const response = await CustomerApis.createCustomer(token, someCustomerName)
         customerId = response.body._id
 
         expect(response.status).toBe(201)
         expect(response.body.name).toBe(someCustomerName)
     });
     it('should Get Customer Groups', async () => {
-        const response = await APIS.getCustomerGroups(token, customerId)
+        const response = await CustomerApis.getCustomerGroups(token, customerId)
 
         expect(response.status).toBe(200)
     });
 
     it('should Get Customers', async () => {
-        const response = await APIS.getCustomers(token)
+        const response = await CustomerApis.getCustomers(token)
 
         expect(response.status).toBe(200)
     });
 
     it('should get customer apps', async () => {
-        const response = await APIS.getCustomerApps(token)
+        const response = await CustomerApis.getCustomerApps(token)
 
         expect(response.status).toBe(200)
     });
 
     it('should get customer with customer Id', async () => {
-        const response = await APIS.getCustomer(token, customerId)
+        const response = await CustomerApis.getCustomer(token, customerId)
 
         expect(response.status).toBe(200)
         expect(response.body._id).toBe(customerId)
@@ -45,14 +45,14 @@ describe('XDM Tests', () => {
     });
 
     it('should update customer name', async () => {
-        const response = await APIS.updateCustomer(token, customerId, updatedCustomerName)
+        const response = await CustomerApis.updateCustomer(token, customerId, updatedCustomerName)
 
         expect(response.status).toBe(200)
         expect(response.body.name).toBe(updatedCustomerName)
     });
 
     it('should delete customer', async () => {
-        const response = await APIS.deleteCustomer(customerId)
+        const response = await CustomerApis.deleteCustomer(customerId)
 
         expect(response.status).toBe(200)
         expect(response.body.name).toBe(someCustomerName)

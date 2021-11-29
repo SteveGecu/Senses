@@ -1,5 +1,5 @@
 const Token = require('../getToken')
-const APIS = require('../Component/componentApis')
+const ComponentApis = require('../Component/componentApis')
 
 describe('XDM Tests', () => {
     let token;
@@ -9,7 +9,7 @@ describe('XDM Tests', () => {
     })
 
     it('should Get Components', async () => {
-        const response = await APIS.getComponent(token)
+        const response = await ComponentApis.getComponent(token)
         expect(response.status).toBe(200)
         console.log(response.body);
     });

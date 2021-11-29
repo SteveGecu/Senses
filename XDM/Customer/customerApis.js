@@ -85,7 +85,7 @@ async function createCustomer(token, someCustomerName) {
 }
 
 async function updateCustomer(token, customerId, updatedName) {
-    const response = await fetch(XDMurl + "/customer/" + customerId, {
+    const response = await fetch(XDMurl + "/admin/customer/" + customerId, {
         method: 'PUT',
         headers: {
             'Accept': '*/*',
