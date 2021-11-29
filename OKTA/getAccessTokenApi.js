@@ -1,4 +1,11 @@
 const fetch = require("node-fetch")
+require('dotenv').config()
+const codeVerifier = process.env.CODEVERIFIER
+const username = process.env.USERNAME
+const password = process.env.PASSWORD
+const redirectUri = process.env.REDIRECTURI
+const clientId = process.env.CLIENTID
+const codeChallange = process.env.CODECHALLANGE
 const sessionTokenUrl = 'https://spacee.okta.com/api/v1/authn'
 const authTokenUrl = 'https://spacee.okta.com/oauth2/ausd9g9jmaQVYtJqt357/v1/authorize'
 const accesTokenUrl = 'https://spacee.okta.com/oauth2/ausd9g9jmaQVYtJqt357/v1/token?state=state'
@@ -20,8 +27,8 @@ async function getToken() {
             'Cookie': cookie
         },
         body: JSON.stringify({
-            'username': 'stevegecu@gmail.com',
-            'password': 'testAuto123!',
+            'username': username,
+            'password': password,
             'options': {
                 'multiOptionalFactorEnroll': false,
                 'warnBeforePasswordExpired': false
@@ -31,21 +38,7 @@ async function getToken() {
     ).then(response => response.json())
     const sessionToken = await sessionTokenResponse.sessionToken
 
-    // let url = new URL(authTokenUrl)
-    // let authParams = {
-    //     client_id: client_id,
-    //     code_challenge: 'VLjdZorw0q_PH3y0Fa6Dr4D1TigchCkheds970TTxgU',
-    //     code_challenge_method: 'S256',
-    //     redirect_uri: 'https://xdm-ui.sense.dev.eastus2.spacee.io/implicit/callback',
-    //     response_type: 'code',
-    //     sessionToken: sessionToken,
-    //     sate: 'state',
-    //     nonce: 'nonce',
-    //     scope: 'openid profile email'
-    // };
-    // url.search = new URLSearchParams(authParams)
-
-    const authorizationCode = await fetch(authTokenUrl + "?client_id=0oaatf0youl72WCfo357&code_challenge=VLjdZorw0q_PH3y0Fa6Dr4D1TigchCkheds970TTxgU&code_challenge_method=S256&redirect_uri=https://xdm-ui.sense.dev.eastus2.spacee.io/implicit/callback&response_type=code&sessionToken=" + sessionToken + "&state=state&nonce=nonce&scope=openid profile email", {
+    const authorizationCode = await fetch(authTokenUrl + "?client_id=" + clientId + "&code_challenge=" + codeChallange + "&code_challenge_method=S256&redirect_uri=" + redirectUri + "&response_type=code&sessionToken=" + sessionToken + "&state=state&nonce=nonce&scope=openid profile email", {
         method: 'GET',
         headers: {
             'Accept': '*/*',
@@ -57,11 +50,11 @@ async function getToken() {
     const responseUrl = await authorizationCode.headers.get('location')
     const code = responseUrl ? responseUrl.match(/code=([^&]*)/)[1] : null;
 
-    var urlencoded = new URLSearchParams();
+    let urlencoded = new URLSearchParams();
     urlencoded.append("grant_type", "authorization_code");
-    urlencoded.append("redirect_uri", "https://xdm-ui.sense.dev.eastus2.spacee.io/implicit/callback");
+    urlencoded.append("redirect_uri", redirectUri);
     urlencoded.append("code", code);
-    urlencoded.append("code_verifier", "testAuto123testAuto123testAuto123testAuto123");
+    urlencoded.append("code_verifier", codeVerifier);
     urlencoded.append("client_id", clientId);
 
     const accessTokenResponse = await fetch(accesTokenUrl, {
