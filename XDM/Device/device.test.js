@@ -1,5 +1,5 @@
 const Token = require('../../OKTA/getAccessTokenApi')
-const Apis = require('./deviceApis')
+const deviceApis = require('./deviceApis')
 let deviceId
 
 describe('device Tests', () => {
@@ -10,17 +10,15 @@ describe('device Tests', () => {
     })
 
     it('should get all devices', async () => {
-        const response = await Apis.getAllDevice(token) //BUG
+        const response = await deviceApis.getAllDevice(token) //BUG
         deviceId = response.body._id
-        console.log(response);
 
         expect(response.status).toBe(200)
         expect((response.body)).toHaveProperty
     });
 
     it('should get particular device', async () => {
-        const response = await Apis.getDevice(token, deviceId)
-        console.log(response);
+        const response = await deviceApis.getDevice(token, deviceId)
 
         expect(response.status).toBe(200)
         expect(expect.body).toHaveProperty
