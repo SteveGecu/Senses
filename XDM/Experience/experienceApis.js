@@ -11,7 +11,38 @@ async function createExperience(token) {
             'Content-Type': '*/*',
             'Authorization': `Bearer ${ token }`
         },
-        body: {}
+        body: {
+            "_id": "614e46dca51b99240e000099",
+            "assets": [],
+            "containers": [
+                {
+                    "_id": "614e46dca51b99240e000001",
+                    "friendlyName": "New Container",
+                    "name": "New Container",
+                    "layerIndex": 2,
+                    "rotation": 0,
+                    "width": null,
+                    "height": null,
+                    "backgroundAssetId": null,
+                    "frames": []
+                }
+            ],
+            "displays": [
+                {
+                    "_id": "61424a540b8cd59d0072c86b",
+                    "friendlyName": "New Display",
+                    "containers": [
+                        "61424a540b8cd59d0072c86a"
+                    ]
+                }
+            ],
+            "frames": [],
+            "frameLinks": [],
+            "frameComponents": [],
+            "touchpoints": [],
+            "tag": [],
+            "orgId": "60e4ad4b72fb7971b9c0fc2f"
+        }
     })
     return {
         body: await response.json(),

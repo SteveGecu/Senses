@@ -16,16 +16,14 @@ describe('Experience Tests', () => {
         expect(response.status).toBe(201)
     });
 
-    it('should create get all experiences', async () => {
+    it('should get all experiences', async () => {
         const response = await experienceApis.getAllExperiences(token)
-        experienceId = response.body._id
 
         expect(response.status).toBe(200)
     });
 
-    it('should create get particular experience', async () => {
+    it('should get particular experience', async () => {
         const response = await experienceApis.getExperience(token, experienceId)
-        experienceId = response.body._id
 
         expect(response.status).toBe(200)
     });
