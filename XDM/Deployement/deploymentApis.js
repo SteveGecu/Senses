@@ -4,7 +4,7 @@ require('dotenv').config()
 const XDMurl = process.env.XDMHOST
 
 async function getAllDeployment(token) {
-    const response = await fetch(XDMurl + "/deployement", {
+    const response = await fetch(XDMurl + "/deployment", {
         method: 'GET',
         headers: {
             'Accept': '*/*',
@@ -20,7 +20,7 @@ async function getAllDeployment(token) {
 }
 
 async function createDeployment(token, experienceId, customerId,) {
-    const response = await fetch(XDMurl + "/deployement", {
+    const response = await fetch(XDMurl + "/deployment", {
         method: 'POST',
         headers: {
             'Accept': '*/*',
@@ -87,7 +87,7 @@ async function updateDeployment(token, deploymentId, customerId, experienceId, n
 }
 
 async function executeDeployment(token, deploymentId) {
-    const response = await fetch(XDMurl + "/deployement" + deploymentId + "/execute", {
+    const response = await fetch(XDMurl + "/" + deploymentId + "/execute", {
         method: 'POST',
         headers: {
             'Accept': '*/*',

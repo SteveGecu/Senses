@@ -10,7 +10,7 @@ describe('device Tests', () => {
     })
 
     it('should get all devices', async () => {
-        const response = await Apis.getAllDevice(token)
+        const response = await Apis.getAllDevice(token) //BUG
         deviceId = response.body._id
         console.log(response);
 

@@ -1,5 +1,5 @@
 const Token = require('../../OKTA/getAccessTokenApi')
-const DeployementApis = require('../Deployement/deployementApis')
+const DeploymentApis = require('./deploymentApis')
 const CustomerApis = require('../Customer/customerApis')
 let deploymentId
 let experienceId
@@ -17,32 +17,32 @@ describe('Deployment Tests', () => {
     })
 
     it('should create new deployment', async () => {
-        const response = await DeployementApis.createDeployment(token, experienceId, customerId)
+        const response = await DeploymentApis.createDeployment(token, experienceId, customerId)
         deploymentId = response.body._id
 
         expect(response.status).toBe(201)
     });
 
     it('should get particular deployment', async () => {
-        const response = await DeployementApis.getDeployment(token, deploymentId)
+        const response = await DeploymentApis.getDeployment(token, deploymentId)
 
         expect(response.status).toBe(200)
     });
 
     it('should get all deployments', async () => {
-        const response = await DeployementApis.getAllDeployment(token)
+        const response = await DeploymentApis.getAllDeployment(token)
 
         expect(response.status).toBe(200)
     });
 
     it('should update particular deployment', async () => {
-        const response = await DeployementApis.updateDeployment(token, deploymentId, customerId, experienceId, name, isexecuted)
+        const response = await DeploymentApis.updateDeployment(token, deploymentId, customerId, experienceId, name, isexecuted)
 
         expect(response.status).toBe(200)
     });
 
     it('should execute particular deployment', async () => {
-        const response = await DeployementApis.executeDeployment(token, deploymentId)
+        const response = await DeploymentApis.executeDeployment(token, deploymentId) //BUG
 
         expect(response.status).toBe(200)
     });
