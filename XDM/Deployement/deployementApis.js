@@ -19,7 +19,7 @@ async function getAllDeployment(token) {
     }
 }
 
-async function createDeployment(token) {
+async function createDeployment(token, experienceId, customerId,) {
     const response = await fetch(XDMurl + "/deployement", {
         method: 'POST',
         headers: {
@@ -27,7 +27,13 @@ async function createDeployment(token) {
             'Content-Type': '*/*',
             'Authorization': `Bearer ${ token }`
         },
-        body: {}
+        body: {
+            "name": "TestAutomation",
+            "description": "This is a Test Automation Deployment",
+            "devices": "spacee-sense-12",
+            "experienceId": experienceId,
+            "customerId": customerId
+        }
     })
     return {
         body: await response.json(),
@@ -52,7 +58,7 @@ async function getDeployment(token, deploymentId) {
     }
 }
 
-async function updateDeployment(token, deploymentId) {
+async function updateDeployment(token, deploymentId, customerId, experienceId, name, isexecuted) {
     const response = await fetch(XDMurl + "/deployment" + deploymentId, {
         method: 'PUT',
         headers: {
@@ -60,7 +66,18 @@ async function updateDeployment(token, deploymentId) {
             'Content-Type': '*/*',
             'Authorization': `Bearer ${ token }`
         },
-        body: {}
+        body: {
+            "createdAt": "2021-11-12T20:54:38.291Z",
+            "customerId": customerId,
+            "description": "Ignore",
+            "devices": "spacee-sense-12",
+            "experienceId": experienceId,
+            "isExecuted": isexecuted,
+            "name": name,
+            "updatedAt": "2021-11-15T07:46:11.982Z",
+            "__v": 0,
+            "_id": "618ed48e6a12d8515acb0eee"
+        }
     })
     return {
         body: await response.json(),
