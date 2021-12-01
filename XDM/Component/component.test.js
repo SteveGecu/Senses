@@ -1,7 +1,7 @@
 const Token = require('../getToken')
-const ComponentApis = require('../Component/componentApis')
+const ComponentApis = require('./componentApis')
 
-describe('XDM Tests', () => {
+describe('XDM Component Tests', () => {
     let token;
 
     beforeAll(async () => {
